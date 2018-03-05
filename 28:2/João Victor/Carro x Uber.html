@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8"> 
+	<title>
+		Logica de programação 
+	</title>
+</head>
+<head>
+<body>
+	<script src = "funcoes.js"></script>
+	<script>
+		function formataNumeroDecimal(valor){
+			var valorFormatado = valor.toFixed(2).replace(".",",");
+			return valorFormatado;
+		}
+
+		function formataNumeroRecebido(mensagem){
+			var valorRecebido = parseFloat(prompt(mensagem).replace("o","0").replace(",","."));
+			return valorRecebido;
+		}
+
+		var precoEstacionamento = 10.00;
+		var precoEstacionamentoF = formataNumeroDecimal (precoEstacionamento);
+		var distancia = formataNumeroRecebido ("Qual a distancia percorrida?");
+		var valorCombustivel = formataNumeroRecebido("Qual o valor do combustivel?");
+		var consumo = formataNumeroRecebido ("Qual o consumo do seu veiculo? KM/L");
+		var combustivelGasto = (valorCombustivel/consumo) * distancia;
+		var combustivelGastoF = formataNumeroDecimal (combustivelGasto);
+		var valorFinalUber = combustivelGasto+5;
+		var valorFinalUberF = formataNumeroDecimal (valorFinalUber);
+		var valorCarroFinal = combustivelGasto + precoEstacionamento;		
+		var valorCarroFinalF = formataNumeroDecimal (valorCarroFinal);
+	</script>
+</body>

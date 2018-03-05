@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+    <title></title>
+    <meta charset="utf-8">
+</head>
+<body id="body">
+    <form>
+        <h2>Campeonato:</h2>
+        <h4>Time 1 <input type="text" id="nome-time-1" placeholder="Insira o nome do time"> </h4> 
+        <p>Vitórias
+            <input type="number" id="vitorias-time-1" value="0" /> Empates
+            <input type="number" id="empates-time-1" value="0" />
+        </p>
+        <h4>Time 2 <input type="text" id="nome-time-2" placeholder="Insira o nome do time"> </h4>
+        <p>Vitórias
+            <input type="number" id="vitorias-time-2" value="0" /> Empates
+            <input type="number" id="empates-time-2" value="0" />
+        </p>
+        <input type="button" onclick="enviar()" value="Enviar">
+    </form>
+        <table style="width:50%" border="1">
+                <tr>
+                  <th>Time:</th>
+                  <th>Vitórias</th> 
+                  <th>Empates</th>
+                  <th>Pontos</th>
+                </tr>
+                <tr>
+                  <td id="coluna-nome-time1">Time 1 </td>
+                  <td id="coluna-vitorias-time1">0</td>
+                  <td id="coluna-empates-time1">0</td>
+                  <td id="coluna-pontos-time1">0</td>
+                </tr>
+                <tr>
+                    <td id="coluna-nome-time2">Time 2 </td>
+                    <td id="coluna-vitorias-time2">0</td>
+                    <td id="coluna-empates-time2">0</td>
+                    <td id="coluna-pontos-time2">0</td>
+                </tr>
+              </table>
+              <h1 id="resultado"></h1>
+    <script>
+        pontuacao[1]
+        function mostraVencedor(nomeTime,totalPontosTime1, totalPontosTime2) {
+            var resultadoFinal;
+            if (totalPontosTime1 > totalPontosTime2) {
+                resultadoFinal = nomeTime[0] + " está ganhando!";
+            } else if (totalPontosTime1 < totalPontosTime2) {
+                resultadoFinal = nomeTime[1] + " está ganhando!";
+            } else {
+                resultadoFinal = "Os 2 times estão empatados.";
+            }
+            return resultadoFinal;                
+        }
+        function enviar() {
+            var nomeTime = [document.getElementById("nome-time-1").value,
+            document.getElementById("nome-time-2").value];
+            var vitorias = [parseInt(document.getElementById("vitorias-time-1").value),
+            parseInt(document.getElementById("vitorias-time-2").value)];
+            var empates = [parseInt(document.getElementById("empates-time-1").value),
+            parseInt(document.getElementById("empates-time-2").value)];
+            var pontuacao = [(vitorias[0]*3+empates[0]),(vitorias[1]*3+empates[1])];
+            document.getElementById("coluna-nome-time1").innerText = nomeTime[0];
+            document.getElementById("coluna-nome-time2").innerText = nomeTime[1];
+            document.getElementById("coluna-vitorias-time1").innerText = vitorias[0];
+            document.getElementById("coluna-vitorias-time2").innerText = vitorias[1];
+            document.getElementById("coluna-empates-time1").innerText = empates[0];
+            document.getElementById("coluna-empates-time2").innerText = empates[1];
+            document.getElementById("coluna-pontos-time1").innerText = pontuacao[0];
+            document.getElementById("coluna-pontos-time2").innerText = pontuacao[1];
+            document.getElementById("resultado").innerText = (mostraVencedor(nomeTime, pontuacao[0], pontuacao[1]));
+        }
+    </script>
+</body>
+</html>

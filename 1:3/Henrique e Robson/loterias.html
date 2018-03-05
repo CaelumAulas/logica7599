@@ -1,0 +1,127 @@
+<html>
+<head>  
+<meta charset="UTF-8">
+</head>
+<body>
+
+    
+
+<script>
+    var segredos = sorteiaNumeros(6);
+    
+    for (var contador = 1; contador <= 60; contador++){
+    if (contador <= 60){
+        var checkbox = contador;
+    document.write(
+    "<form>"+ contador +      
+    "<input type='checkbox' value='"+ contador + "'name='numSelecionavel'>");
+    
+    }}
+
+    document.write("<input type='button' value='Aperta aqui' onclick='mostraNumero()'>"  
+    + "</form>");
+    
+
+
+    
+    function mostraNumero(){
+        console.log(segredos);
+        numerosDigitados = [];
+        var numeros = document.forms[0];
+        var txt = "";
+        for (i = 0; i < numeros.length; i++) {
+            if (numeros[i].checked) {
+            numerosDigitados.push(parseInt(numeros[i].value)) ;
+            
+        }}
+       if(segredos.includes(numerosDigitados[i])){
+           alert('Acertou');
+       }
+       else{
+           alert('errou');
+           
+       }
+        console.log(txt);
+        console.log(numerosDigitados);
+    }
+
+    function sorteia() {
+
+        return Math.round(Math.random() * 60);
+    
+    }
+
+
+    function sorteiaNumeros(quantidade) {
+
+        var segredos = [];
+
+        var numero = 1;
+
+        while(numero <= quantidade) {
+
+            var numeroAleatorio = sorteia();
+
+            if(numeroAleatorio !== 0 ) {
+
+                var achou = false;
+
+                for(var posicao = 0; posicao < segredos.length; posicao++) {
+
+                    if(segredos[posicao] == numeroAleatorio) {
+                        achou = true;
+                        break;
+                    }
+                }
+
+                if(achou == false) {
+                    segredos.push(numeroAleatorio); 
+                    numero++;
+                } 
+            }
+        }
+        segredos = segredos.sort(function(a, b){return a - b});
+
+        return segredos;
+    }
+
+    
+
+    console.log(segredos);
+
+    var numDigitados = [];
+
+    var input = document.querySelector("input");
+    console.log(input);
+
+    function verifica() {
+
+        var achou = false;
+
+        for(var posicao = 0; posicao < segredos.length; posicao++) {
+
+            if(input.value == segredos[posicao]) {
+
+                alert("ACERTOU!");
+                achou = true;
+                break;
+            }
+        }
+
+        if(achou == false) {
+
+            alert("ERROU!");    
+        }
+        
+
+        input.value = "";
+        input.focus();      
+        
+    }
+
+    
+
+
+</script>
+</body>
+</html>

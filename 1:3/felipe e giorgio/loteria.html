@@ -1,0 +1,126 @@
+<meta charset="UTf-8">
+
+<html>
+
+    <h2>Loteria</h2>
+
+Digite o 1 palpite:<input placeholder="NÚMERO DE 0-60" id="num1" autofocus><br>
+<hr>
+Digite o 2 palpite:<input placeholder="NÚMERO DE 0-60" id="num2" autofocus><br>
+<hr>
+Digite o 3 palpite:<input placeholder="NÚMERO DE 0-60" id="num3" autofocus><br>
+<hr>
+Digite o 4 palpite:<input placeholder="NÚMERO DE 0-60" id="num4" autofocus><br>
+<hr>
+Digite o 5 palpite:<input placeholder="NÚMERO DE 0-60" id="num5" autofocus><br>
+<hr>
+Digite o 6 palpite:<input placeholder="NÚMERO DE 0-60" id="num6" autofocus><br>
+<hr>
+
+<button onclick= " mostra()">OK </button>
+
+</html>
+
+<script>
+        var aleatorios = [];
+        var cont=0;
+        while(cont<6){
+            var aleatorio = getRandomInt(0,60);
+            
+
+            aleatorios.push(aleatorio);
+            cont++;
+            
+            
+        }
+        console.log(aleatorios);
+
+      
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+    
+    function mostra(){ 
+        var listaDeNumDigitados = [];
+       inicio = 0;
+       ate = 6;
+       while(inicio < ate){
+        var num = document.getElementById("num"+(inicio+1)).value;
+        listaDeNumDigitados.push(parseInt(num));
+        inicio++;
+        
+        }
+        console.log(listaDeNumDigitados)
+        //listaDeNumDigitados.push(parseInt(num1), parseInt(num2), parseInt(num3),parseInt(num4),parseInt(num5),parseInt(num6));
+        
+       var pontuacao = 0 ;
+
+        for(var i = 0; i < 6; i++){
+            
+                if(aleatorios[0]==listaDeNumDigitados[i]){
+                    pontuacao = pontuacao + 1;
+                    
+                }
+            }
+
+                 for(var i = 0; i < 6; i++){
+            
+            if(aleatorios[1]==listaDeNumDigitados[i]){
+                pontuacao = pontuacao + 1;
+            }
+        }
+        for(var i = 0; i < 6; i++){
+            
+            if(aleatorios[2]==listaDeNumDigitados[i]){
+                pontuacao = pontuacao + 1;
+            }
+        }
+            for(var i = 0; i < 6; i++){
+            
+            if(aleatorios[3]==listaDeNumDigitados[i]){
+                pontuacao = pontuacao + 1;
+            }
+        }
+            for(var i = 0; i < 6; i++){
+            
+            if(aleatorios[4]==listaDeNumDigitados[i]){
+                pontuacao = pontuacao + 1;
+            }
+        }
+            for(var i = 0; i < 6; i++){
+            
+            if(aleatorios[5]==listaDeNumDigitados[i]){
+                pontuacao = pontuacao + 1;
+            }
+        }
+
+
+
+if (pontuacao==6){
+    document.write("ACERTOU !!!")
+}else{
+    document.write("NÃO FOI DESSA VEZ !!!")
+
+}
+
+console.log(pontuacao);
+                
+           
+            
+            
+    }
+    
+
+        
+
+
+    
+    
+
+
+        
+
+</script>

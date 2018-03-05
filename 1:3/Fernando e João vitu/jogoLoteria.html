@@ -1,0 +1,50 @@
+<meta charset="utf-8">
+<html>
+    <body>
+        Escolha um numero de 0 a 60 <input type='text' id='numero' autofocus/>    
+        <input type='submit' onclick="guardarNumero()" value='guardar' id='guardar'/>
+        <input type='submit' onclick="adivinhaNumero()" value='verifique' id='adivinhar'/>
+    </body>
+</html>
+
+<script>
+        var numeroAleatorio = selecionaNumeroAleatorio(6);
+        console.log(numeroAleatorio);
+        var numeros = document.getElementById('numero').value;
+        var guardarNumeroVetor
+       
+        function selecionaNumeroAleatorio(loop){
+            var vetor = new Array();
+            for(i = 0;i < loop; i++){
+                vetor[i] = Math.round(Math.random() * 60);
+            }
+            return vetor;
+        }
+        
+        function guardarNumero(){
+            var numeroDigitado = document.getElementById('numero').value
+            guardarNumeroVetor = numeroDigitado.split(",");
+            for(i = 0; i < guardarNumeroVetor.length; i++){
+            guardarNumeroVetor[i] = parseInt(guardarNumeroVetor[i]);
+            }
+            console.log(guardarNumeroVetor);
+        }
+        
+            
+       
+        function adivinhaNumero(){  
+            for(i = 0; i < numeroAleatorio.length; i++){
+                for(j=0; j < guardarNumeroVetor.length;j++){
+                    if(numeroAleatorio[i]==guardarNumeroVetor[j]){
+                        alert("Você acertou " + numeroAleatorio[i]);
+                             
+                    } else {
+                         
+                    }                  
+                    
+            }
+        }
+    }        
+
+
+</script>

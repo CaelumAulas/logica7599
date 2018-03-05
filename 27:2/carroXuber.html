@@ -1,0 +1,33 @@
+<meta charset="utf-8">
+<script src="../funcoes.js"></script>
+<script>
+
+    var mensagem;
+    mensagem = "Digite a origem do trajeto";
+    var origem = pegaEFormataNumeroDecimal();
+    mensagem = "Digite o destino do trajeto";
+    var origem = pegaEFormataNumeroDecimal();
+    var distancia = GoogleMaps.calculaDistancia(origem,destino);
+    //mensagem = "Digite a distância entre a origem e o destino";
+    //var distancia = pegaEFormataNumeroDecimal();
+    document.write("Distância: "+distancia+ "km<br>");
+</script>
+<h3>Uber:</h3>
+<script>
+    var precoUber = 5+distancia*1.40;
+    document.write("Preço gasto: R$"+formataNumeroDecimal(precoUber)+"<br>");
+</script>
+<h3>Carro:</h3>
+<script>
+    mensagem = "Digite o consumo do carro";
+    var consumo=pegaEFormataNumeroDecimal();
+    mensagem = "Digite o preço do combustível";
+    var precoPorLitroCombustivel = pegaEFormataNumeroDecimal();
+    mensagem = "Digite o valor do estacionamento";
+    var precoCombustivel = precoPorLitroCombustivel/consumo*distancia;
+    var precoEstacionamento=pegaEFormataNumeroDecimal();
+    var precoCarro=precoCombustivel+precoEstacionamento;
+    document.write("Preço combustível: R$"+formataNumeroDecimal(precoCombustivel)+"<br>");
+    document.write("Preço estacionamento: R$"+formataNumeroDecimal(precoEstacionamento)+"<br>");
+    document.write("Preço gasto: R$"+formataNumeroDecimal(precoCarro)+"<br>");
+</script>

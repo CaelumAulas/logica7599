@@ -1,0 +1,68 @@
+<meta charset='utf-8'>
+
+<head>
+
+</head>
+    <title>Campeonato</title>
+
+<body>
+
+    <h2>Campeonato</h2>
+    <hr>
+    <script>
+
+        function submit(){
+            var vitoriasRegistradas = [];
+            var pontRegistrada = [];
+            var pontoEmpate = [];
+            var vitorias = [];
+            var empates = [];
+           
+          
+            for(var pontos = 0; pontos < quantTimes; pontos++){
+            
+                vitorias[pontos] = document.getElementById('time'+pontos).value;
+                empates[pontos] = document.getElementById('empates'+pontos).value;
+                var vitoria = parseInt(vitorias[pontos])*3;
+                var empate = parseInt(empates[pontos]);
+                var pontuacao = parseInt(vitoria+empate);
+                pontRegistrada.push(pontuacao);
+                console.log(pontuacao);
+                vitoriasRegistradas.push(parseInt(vitoria));
+                pontoEmpate.push(parseInt(empate));
+
+                
+            }
+      
+
+        var max = Math.max.apply(null, pontRegistrada);
+        
+        for(var pontos = 0; pontos < quantTimes; pontos++){
+        document.write("Time " + (pontos+1) + " tem " + parseInt(pontRegistrada[pontos]) + " pontos <br><br>");}
+        document.write("Maior pontuacao foi " + max) + " pontos";
+        console.log(vitorias);        
+        
+        
+        console.log(vitoriasRegistradas);
+        
+        
+        console.log(max);
+       
+        }
+
+        var quantTimes = parseInt(prompt("Digite a quantidade de times "));
+        
+        for(var time = 0; time < quantTimes; time++){
+            
+            document.write("Time "+ (time+1) +"<input type='number' name='vitoria' placeholder='vitorias' id='time" + time + "'><input type=number placeholder='empates' id='empates"+time+"'><br><br>");
+            
+        }
+        document.write("<button onclick='submit()'>Enviar</button>");   
+        
+        
+        
+        
+    </script>
+
+</body>
+

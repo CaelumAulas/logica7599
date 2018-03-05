@@ -1,0 +1,48 @@
+<meta charset="UTf-8">
+
+<html>
+    
+    <h2>Loteria</h2>
+Chute um numero :<input id="num"><br>
+<button onclick="mostra()"> OK </button>
+
+</html>
+
+<script>
+
+        var numCerto1 = getRandomInt(0,60);
+        console.log(numCerto1);
+        var numCerto2 = getRandomInt(0,60);  
+        console.log(numCerto2);
+        var numCerto3 = getRandomInt(0,60);
+        console.log(numCerto3);
+        var numCerto4 = getRandomInt(0,60);
+        console.log(numCerto4);
+        var numCerto5 = getRandomInt(0,60);
+        console.log(numCerto5);
+        var numCerto6 = getRandomInt(0,60);
+        console.log(numCerto6);
+
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
+}
+    function mostra(){ 
+       num = document.getElementById("num").value;
+
+        if (num>60){
+            alert("NUMERO INVALIDO!!!");
+        }else
+        if(num==numCerto1 || num==numCerto2 || num==numCerto3 || num==numCerto4 || num==numCerto5 || num==numCerto6 ){
+            alert("Acertou");
+        }else{
+            alert("ERROU!!!");
+        }   
+    }
+
+    
+
+
+</script>
+

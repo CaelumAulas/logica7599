@@ -1,0 +1,35 @@
+<meta charset="utf-8">
+<html>
+  <h3>Campeonato de Futebol</h3>
+
+</html>
+<script type="text/javascript">
+  
+    var pontuacao = [];
+    var vetorNomes = [];
+    var posicaoVetor = 0; 
+    
+    for(i=0; i <2; i++){
+        var nomeTime = prompt("Digite o nome do time: ");
+        var numVitorias = parseInt(prompt("Digite a quantidade de VITÓRIAS do time " + nomeTime + ": "));
+        var numEmpates = parseInt(prompt("Digite a quantidade de EMPATES do time "+ nomeTime + ": ")); 
+        var resultado = calculaPontos(numVitorias, numEmpates);
+        document.write("<br>Time " + nomeTime + " tem: " + resultado + " pontos");
+        pontuacao.push(resultado);
+        vetorNomes.push(nomeTime);
+    }
+    
+    if(pontuacao[posicaoVetor] > pontuacao[posicaoVetor+1]){
+        document.write("<br><br>O time "+ vetorNomes[0] + " está ganhando!");
+    }else if(pontuacao[posicaoVetor] == pontuacao[posicaoVetor+1]) {
+        document.write("<br><br>Empate");
+    }else{
+        document.write("<br><br>O time " + vetorNomes[1] + " está ganhando!")
+    }
+
+
+    function calculaPontos(vitorias, empates){
+        return (vitorias * 3) + empates;
+    }
+
+</script>

@@ -1,0 +1,47 @@
+<meta charset="UTf-8">
+<html>
+    <style>
+        body {
+
+
+            background-repeat: no-repeat;
+
+            background-position: right;
+
+        }
+    </style>
+    <body background = "neymar.jpeg">
+        <h2>COPA CIRROSE 2018</h2>
+        Digite o nome do primeiro time:<input placeholder="Real Madrid" id="timeA" autofocus><br><hr color = "red">
+        Digite o nome do segundo time:<input placeholder="Barcelona" id="timeB" autofocus><br><hr color = "blue">
+        <button onclick= " copaCirrose()">Calcule </button>
+
+    <script> 
+        function pegaCalculaPontuacao(nomeTime){
+            vitorias = parseInt(prompt("Digite a quantidade de vitorias do time " + nomeTime));
+            empates = parseInt(prompt("Digite a quantidade de empates do time " + nomeTime));
+            var pontos = vitorias * 3 + empates;
+            return pontos;
+        }
+        function pegaCalculaTime(id) {
+            var nome = document.getElementById("time"+id).value;
+            var pontosTime = pegaCalculaPontuacao(nome);
+            alert ("Total de pontos do time "+ nome + ": " + pontosTime + "<br>");
+            return {"pontos":pontosTime,"nome":nome};
+        }
+
+        function copaCirrose(){
+            var timeA = pegaCalculaTime("A");
+            var timeB = pegaCalculaTime("B");
+
+            if (timeA.pontos > timeB.pontos){
+                alert("Congratulations time " + timeA.nome);
+            }else if (timeA.pontos < timeB.pontos){
+                alert("Congratulations time " + timeB.nome);
+            }else{
+                alert("Empatou!Decisão no par ou ímpar!!!");
+            }
+        }
+    </script>
+    </body>
+</html>

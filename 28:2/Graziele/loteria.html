@@ -1,0 +1,43 @@
+<html>
+  <meta charset="utf-8">
+  <h3>Loteria</h3>
+  Chute um número de 0 à 60:     <input id = "chute">
+
+  <button onclick="verifica()" type="submit">Adivinhar</button>
+  <script>
+
+  function sorteia (){ //retorna um numero aleatorio
+		return Math.round(Math.random() * 60);
+	}
+
+  function sorteiaNumeros (quantidade){
+		var segredos = [];
+		var numero = 1;
+		while (numero <= quantidade){
+			var numeroAleatorio =  sorteia();
+			segredos.push(numeroAleatorio);
+			numero++;
+		}
+		return segredos;
+	}
+
+  var achou = false;
+  function verifica (){
+    var chute = document.getElementById("chute").value;
+    var segredos = sorteiaNumeros(6);
+    console.log(segredos);
+    console.log(chute);
+    for (var posicao = 0; posicao<segredos.length; posicao++) {
+      if (chute == segredos[posicao]){
+        alert("Você acertou");
+        achou = true;
+        break;
+      }
+    }
+    if (achou == false){
+      alert("Você errou!");
+    }
+  }
+  </script>
+
+</html>

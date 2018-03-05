@@ -1,0 +1,23 @@
+<meta charset="utf-8">
+<html>
+    <body>
+        Escolha um numero de 0 a 60 <input type='text' id='numero' autofocus/>    
+        <input type='submit' onclick="adivinhaNumero()" value='verifique' id='adivinhar'/>
+    </body>
+</html>
+
+<script>
+        var n1 = Math.round(Math.random() * 60);
+        console.log(n1);
+
+        function adivinhaNumero(){
+            var caixaDoNumero = document.getElementById('numero').value;
+            if(caixaDoNumero == n1){
+                alert("Acertou!!\nRecarregue a página ");
+            }else{
+                alert("ERROU!!!");
+            }
+    }
+    
+
+</script>

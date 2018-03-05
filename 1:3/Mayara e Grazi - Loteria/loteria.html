@@ -1,0 +1,96 @@
+<html>
+  <meta charset="utf-8">
+  <h3>Loteria</h3>
+
+  Chute 6 números de 0 à 60:     <input id = "chute" placeholder="Exemplo: 0,1,25,39,43,58">
+  <button onclick="verifica()" type="submit" id="btn-adivinhar">Adivinhar</button>
+  <br>
+  <br>
+
+  Obs. Separe os valores por virgula.
+
+
+  <script>
+
+  function sorteia (){ //retorna um numero aleatorio
+		return Math.round(Math.random() * 60);
+	}
+
+  function sorteiaNumeros (quantidade){
+		var segredos = [];
+		var contador= 1;
+		while (contador <= quantidade)
+    {
+			var numeroAleatorio =  sorteia();
+      var numeroRepetido = false;
+
+        for(var posicao = 0; posicao < segredos.length; posicao++)
+        {
+          	if(segredos[posicao] == numeroAleatorio){
+          		numeroRepetido = true;
+          		break;
+          	}
+        }
+        if(numeroRepetido == false) {
+        	segredos.push(numeroAleatorio);
+        	contador++;
+        }
+      }
+		return segredos;
+	}
+  var segredos = sorteiaNumeros(6);
+  console.log(segredos);
+  var acertos = 0;
+  input = "";
+  function verifica (){
+
+    var chute = document.getElementById("chute").value;
+    var input = document.getElementById("chute").value;
+    var chutes = chute.split(",");
+
+    if(chutes.length != segredos.length)
+    {
+      alert("Erro: Informe 6 números, separados por vírgula");
+      location.reload();
+    }
+    else{
+      for (let i = 0; i < chutes.length;i++)
+      {
+        chutes[i] = parseInt(chutes[i]);
+      }
+
+      console.log(chutes);
+
+      //pesquisar sobre o vertor segredos.includes (elementoProcurado)
+      // getRandomInt (0,60) sorteia um numero de de 0 a 60
+
+      for (var i = 0; i<segredos.length; i++){
+        for (var j = 0; j<chutes.length; j++){
+          if (chutes[j] == segredos[i])
+          {
+            acertos++;
+            break;
+          }
+        }
+      }
+      if (acertos != segredos.length){
+        alert("Você errou!");
+        location.reload();
+        input = "";
+
+      }
+      else {
+        alert("Você acertou");
+        location.reload();
+        input = "";
+      }
+    }
+
+
+  }
+
+
+
+  </script>
+
+</html>

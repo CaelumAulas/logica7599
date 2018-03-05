@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="UTF-8">
+</head>
+<body>
+	<script>
+		var imagem = "<img src = 'https://4.bp.blogspot.com/-PglhwZ3XG_E/WQTHO4uNFHI/AAAAAAABBG0/it2iY-ad_G4_ktKL_JHS7kHeybkIrKgaQCLcB/s1600/monalisa%2Bdab%2Bdance.jpg' />";
+		var imagem2 = "<img src = 'https://i.pinimg.com/736x/a5/61/93/a56193dd5802b8e4e433a549886ead82--sad-gifs.jpg' />"
+		var adivinha = new Array (Math.round(Math.random()*60),Math.round(Math.random()*60),Math.round(Math.random()*60),Math.round(Math.random()*60),Math.round(Math.random()*60),Math.round(Math.random()*60));
+		console.log(adivinha);
+
+		var numero = (prompt("Digite o primeiro primeiro numero"));
+			
+				if(numero == adivinha[0]||numero == adivinha[1]||numero == adivinha[2]||numero == adivinha[3]||numero == adivinha[4]||numero == adivinha[5]){
+					alert("Parabens, você acertou");
+					document.write(imagem);
+					//break;
+				} else {
+					numero = alert("Você errou ");
+					document.write(imagem2);
+				}
+	</script>
+</body>

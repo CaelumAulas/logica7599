@@ -1,0 +1,64 @@
+<meta charset='utf-8'>
+
+<head>
+
+
+</head>
+
+<body>
+    <h3>Loteria</h3>
+    <form>
+        <label for='numero'>Número</label>
+        <input type='number' id='numero'/>
+        <input type='submit' onclick = 'funcao()'>
+    </form>
+
+    <script>
+
+        var numerosLoteria = [];
+        
+        for(item=0; item<6; item++){
+            
+            numerosLoteria.push(Math.round(Math.random()*10*6));
+
+            
+            if(numerosLoteria[item] in numerosLoteria){
+                numerosLoteria[item] = numerosLoteria[item]+1;
+            
+        }
+            
+        }
+        
+        console.log(numerosLoteria.sort(function(a, b){return a - b}));
+        
+        
+
+    
+    function funcao(){
+        
+
+        var numero = document.getElementById('numero').value;
+
+        for (item = 0; item < numerosLoteria.length; item++){
+
+            if (numero == numerosLoteria[item]){
+                var acertou = true;
+                break;
+            }
+            else{
+                var acertou = false;
+            }
+
+        }
+        if(acertou == true){
+            alert('Acertou')
+        }
+        else{
+            alert('Errou')
+        }
+ 
+        
+    }
+    </script>
+
+</body>

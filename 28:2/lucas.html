@@ -1,0 +1,39 @@
+<!doctype html>
+<meta charset="utf-8">
+
+
+Escolha um numero: <input id="numero">
+<button onclick="sorteia()" type="submit">Adivinha</button>
+
+<script>
+
+
+
+var numero = Math.round(Math.random() * 50);
+console.log(numero);
+
+
+function sorteia(){
+
+
+      var chute = document.getElementById("numero").value;
+
+
+  if(chute == numero){
+
+		alert("Você acertou");
+
+
+	}else{
+	alert("Você errou,o numero é "+ numero);
+	}
+
+
+
+}
+
+
+
+</script>
+
+

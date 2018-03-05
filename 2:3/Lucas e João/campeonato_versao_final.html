@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+        <meta charset = "UTF-8">
+        <title>Campeonato</title>
+        <h1>Copa Cirrose</h1>
+</head>
+<body>
+        <script>
+
+		var nomeTimeA = prompt("Digite o nome do primeiro time");
+		var nomeTimeB = prompt("Digite o nome do segundo time");
+		document.write(nomeTimeA + " <input id='recebePontos0' placeholder='EX: vitorias,empates'/>");
+		document.write("<br>");
+		document.write(nomeTimeB + " <input id='recebePontos1' placeholder='EX: vitorias,empates'/>");
+		document.write("<br>");
+		document.write("<button onclick = 'calculaPontos()'>Calcular pontos dos Times</button>");
+                document.getElementById('recebePontos0').value='';
+                document.getElementById('recebePontos1').value='';
+
+                function calculaPontos(){
+                        var timesParticipantes = 2;
+			var vitoriasTime = [];
+                        var empatesTime = [];
+                        var pontuacaoTotalTime = [];
+                        var RecebePontos = [];
+                        for(i=0;i<timesParticipantes;i++){
+                                recebePontos = document.getElementById("recebePontos"+i).value;
+                                var recebePontosSeparados = recebePontos.split(",");
+                                vitoriasTime[i] = parseInt(recebePontosSeparados[0]);
+                                empatesTime[i] = parseInt(recebePontosSeparados[1]);
+                                pontuacaoTotalTime[i] = (vitoriasTime[i]*3 + empatesTime[i]);
+                        }
+
+
+                        if (pontuacaoTotalTime[0] > pontuacaoTotalTime[1]) {
+                                document.write("A pontuação total do " + nomeTimeA + " é: "+pontuacaoTotalTime[0]);
+                                document.write("<br>A pontuação total do time "+ nomeTimeB + " é: "+pontuacaoTotalTime[1]);
+                                alert("Time "+ nomeTimeA + " está ganhando");
+                        } else if (pontuacaoTotalTime[1] > pontuacaoTotalTime[0]){
+                                document.write("A pontuação total do time "+ nomeTimeB + " é: "+pontuacaoTotalTime[1]);
+                                document.write("<br>A pontuação total do time " + nomeTimeA + " é: "+pontuacaoTotalTime[0]);
+                                alert("Time "+ nomeTimeB + " está ganhando");
+                        } else {
+                                alert("Os dois times estão com a mesma pontuação");
+                        }
+                }
+
+        </script>
+</body>

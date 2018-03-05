@@ -1,0 +1,46 @@
+<!doctype html>
+<meta charset="utf-8">
+
+
+Escolha 6 numero de 1 á 60: <input id="numero" placeholder="Ex: 1-2-3-4-5-6">
+<button onclick="verificaNumeros()" type="submit">Adivinha</button>
+
+<script>
+function sorteiaNumeros(numeros){
+  var nSorteados = [numeros];
+
+var i=0;
+  while(i<numeros){
+    numeroAleatorio=(Math.ceil(Math.random() * 60)).toFixed(0);
+    if (!nSorteados.includes(numeroAleatorio)){
+      nSorteados[i] = numeroAleatorio;
+      i++;
+    }
+  }
+  return nSorteados;
+}
+sorteados= sorteiaNumeros(6);
+console.log(sorteados);
+
+
+function verificaNumeros(){
+var chute = document.getElementById("numero").value.split("-");
+
+console.log(chute);
+var acertou = false;
+for(i=0;i<sorteados.length;i++){
+  if (sorteados.includes(chute[i])){
+	  acertou++;
+	}
+}
+ if (acertou == sorteados.length) {
+   alert("Você acertou");
+ }else{
+   alert("Você errou, tente novamente" );
+ }
+
+}
+
+
+
+</script>

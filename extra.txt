@@ -1,0 +1,7 @@
+Fazer uma aplicação simulando o caixa de uma loja
+
+- Adicionar produto:
+o usuário vai informar pra aplicação o nome do produto e o preço, e depois vai imprimir no final da página o nome e o preço de uma forma bonitinha(ex: Calça - R$ 45,90)
+
+- Limitar quantidade de produtos:
+o usuário só pode adicionar até 10 produtos na lista dele; se passar de 10, não adicionar (imprimir) e avisar o usuário

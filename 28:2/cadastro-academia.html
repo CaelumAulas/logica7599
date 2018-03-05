@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html>
+<body>
+<h3>Cadastro da Academia</h3>
+Nome: <input id="nome"><br>
+Data de Nascimento: <input id="dataNascimento"><br>
+Objetivo: <input id="objetivo"><br>
+Plano: <input id="plano"><br>
+Peso: <input id="peso"><br>
+Altura: <input id="altura"><br>
+Telefone: <input id="telefone"><br>
+<button onclick="submit()">Cadastrar</button>
+<script src="../funcoes.js"></script>
+<script>
+    
+    function submit() {
+        var imagem = "<img src='https://sites.psu.edu/siowfa16/files/2016/10/YeDYzSR-10apkm4.png' width='100' height='100'/>";
+        var nome = document.getElementById("nome").value;
+        var matricula = Math.round(Math.random()*1000)
+        var objetivo = document.getElementById("objetivo").value;
+        var plano = document.getElementById("plano").value;
+        var peso = parseFloat(document.getElementById("peso").value.replace(",","."));
+        var altura = parseFloat(document.getElementById("altura").value.replace(",","."));
+        var telefone = document.getElementById("telefone").value;
+        var telefoneFormatado = "("+telefone.substring(0,2)+")"+telefone.substring(2,7)+"-"+telefone.substring(7)
+        var dataNascimento = document.getElementById("dataNascimento").value;
+        console.log(dataNascimento);
+        var dataAtual = new Date();
+        var idade = calculaIdade(dataNascimento, dataAtual);
+
+        document.write(imagem);
+        document.write("<br>Nome: "+nome);
+        document.write("<br>Idade: "+idade+"anos");
+        document.write("<br>Matrícula: "+matricula);
+        document.write("<br>Objetivo: "+objetivo);
+        document.write("<br>Plano: "+plano);
+        document.write("<br>Peso: "+formataNumeroDecimal(peso)+"kg");
+        document.write("<br>Altura: "+formataNumeroDecimal(altura)+"m");
+        var imc = calculaEVerificaIMC(peso, altura);
+        document.write("<br>IMC: "+formataNumeroDecimal(imc));
+        document.write("<br>Telefone: "+telefoneFormatado);
+        return false;
+    }
+   
+</script>
+</body>
+</html>
